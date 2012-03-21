@@ -5,7 +5,7 @@
 /* Project name:                                                          */
 /* Author:                                                                */
 /* Script type:           Database creation script                        */
-/* Created on:            2012-03-16 09:21                                */
+/* Created on:            2012-03-21 08:58                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -73,8 +73,8 @@ CREATE TABLE [Inventory] (
     [ProductID] INTEGER,
     [Status] VARCHAR(40),
     [PriceSale] NUMERIC,
-    [Sold (da ban)] VARCHAR(40),
-    [Quantity hientai] VARCHAR(40),
+    [Sold] VARCHAR(40),
+    [Quantity] VARCHAR(40),
     CONSTRAINT [PK_Inventory] PRIMARY KEY ([ID])
 )
 GO
@@ -100,7 +100,6 @@ CREATE TABLE [Customers] (
     [Address] VARCHAR(40),
     [PhoneNumber] VARCHAR(40),
     [Email] VARCHAR(40),
-    [Status] VARCHAR(40),
     [Gender] INTEGER,
     CONSTRAINT [PK_Customers] PRIMARY KEY ([ID])
 )
@@ -156,7 +155,6 @@ CREATE TABLE [Imported] (
     [ID] INTEGER IDENTITY(0,1) NOT NULL,
     [Date] DATETIME,
     [ManufacturerID] INTEGER,
-    [InventoryID] INTEGER,
     CONSTRAINT [PK_Imported] PRIMARY KEY ([ID])
 )
 GO
@@ -195,7 +193,7 @@ CREATE TABLE [ImportedDetail] (
     [ID] INTEGER IDENTITY(0,1) NOT NULL,
     [ProductID] INTEGER,
     [Quantity] INTEGER,
-    [Price] NUMERIC,
+    [PriceImport] NUMERIC,
     [ImportedID] INTEGER,
     CONSTRAINT [PK_ImportedDetail] PRIMARY KEY ([ID])
 )
@@ -243,10 +241,6 @@ GO
 
 ALTER TABLE [ItemsReturn] ADD CONSTRAINT [Users_ItemsReturn] 
     FOREIGN KEY ([UserID]) REFERENCES [Users] ([ID])
-GO
-
-ALTER TABLE [Imported] ADD CONSTRAINT [Inventory_Imported] 
-    FOREIGN KEY ([InventoryID]) REFERENCES [Inventory] ([ID])
 GO
 
 ALTER TABLE [Imported] ADD CONSTRAINT [Manufacturers_Imported] 

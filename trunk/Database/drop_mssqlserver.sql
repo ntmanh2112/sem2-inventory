@@ -5,7 +5,7 @@
 /* Project name:                                                          */
 /* Author:                                                                */
 /* Script type:           Database drop script                            */
-/* Created on:            2012-03-16 09:21                                */
+/* Created on:            2012-03-21 08:58                                */
 /* ---------------------------------------------------------------------- */
 
 
@@ -41,9 +41,6 @@ ALTER TABLE [ItemsReturn] DROP CONSTRAINT [Bills_ItemsReturn]
 GO
 
 ALTER TABLE [ItemsReturn] DROP CONSTRAINT [Users_ItemsReturn]
-GO
-
-ALTER TABLE [Imported] DROP CONSTRAINT [Inventory_Imported]
 GO
 
 ALTER TABLE [Imported] DROP CONSTRAINT [Manufacturers_Imported]
